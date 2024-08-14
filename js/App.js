@@ -12,3 +12,7 @@ class Quiz {
         return "C'était pas si difficile :)"
     }
 }
+
+
+const myQuiz = new Quiz("partie-1", 4 );
+console.log(myQuiz.getAnswer())

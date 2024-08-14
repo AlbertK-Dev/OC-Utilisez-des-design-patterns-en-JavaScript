@@ -2,7 +2,7 @@ class Movie {
 
     constructor(data){
         this._title = data.title.fr || data.title.en;
-        this._duration = `${parseInt(Number(data.duration)/60)}h${Number(data.duration)%60}` ;
+        this._duration = data.duration ;
         this._picture = data.picture;
         this._synopsis = data.synopsis;
         this._released_in = data.released_in;
@@ -13,7 +13,9 @@ class Movie {
     }
 
     get duration(){
-        return this._duration;
+        const hours = Math.floor(this._duration / 60)
+        const minutes = this._duration % 60
+        return `${hours}h${minutes}`
     }
 
     get synopsis(){

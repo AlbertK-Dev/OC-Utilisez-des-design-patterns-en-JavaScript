@@ -14,7 +14,7 @@ class App {
         const Movies = moviesData.map(movie => new MoviesFactory(movie, 'newApi'))
         const ExternalMovies = externalMoviesData.map(movie => new MoviesFactory(movie, 'externalApi'))
 
-        const FullMovies = Movies.concat(ExternalMovies)
+        const FullMovies = ExternalMovies.concat(Movies)
 
 
         const Form = new FormModal()
@@ -24,7 +24,7 @@ class App {
         Filter.render()
 
         FullMovies.forEach(movie => {
-                const Template = new MovieCard(movie)
+                const Template = movieCardWithPlayer(new MovieCard(movie)) 
                 this.$moviesWrapper.appendChild(
                     Template.createMovieCard()
                 )
